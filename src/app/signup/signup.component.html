@@ -7,121 +7,48 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
-  <style type="text/css">
-    body {
-      color: #fff;
-      background-image: url('http://warp.la/wp-content/uploads/2018/06/voto.jpg');
-      
-      background-repeat:no-repeat;
-      font-family: 'Roboto', sans-serif;
-    }
-      .form-control {
-      min-height: 41px;
-      box-shadow: none;
-      border-color: #ddd;
-    }
-    .form-control, .btn {        
-          border-radius: 3px;
-      }
-    .signup-form {
-      width: 390px;
-      margin: 0 auto;
-      padding: 30px 0;
-    }
-    .signup-form form {
-      color: #999;
-      border-radius: 3px;
-        margin-bottom: 15px;
-          background: #fff;
-          box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-          padding: 30px;
-      }
-    .signup-form h2 {
-      color: #333;
-      font-weight: bold;
-          margin-top: 0;
-      }
-      .signup-form hr {
-          margin: 0 -30px 20px;
-      }
-    .signup-form .form-group {
-      margin-bottom: 20px;
-    }
-      .signup-form label {
-      font-weight: normal;
-      font-size: 13px;
-    }
-    .signup-form input[type="checkbox"] {
-      margin-top: 2px;
-    }    
-      .signup-form .btn {        
-          font-size: 16px;
-          font-weight: bold;
-      background: #3598dc;
-      border: none;
-      min-width: 140px;
-      }
-    .signup-form .btn:hover, .signup-form .btn:active {
-      background: #2389cd;
-      outline: none !important;
-    }
-    .signup-form a {
-      color: #fff;
-          text-decoration: underline;
-    }
-      .signup-form a:hover {
-          text-decoration: none;
-      }
-      .signup-form form a {
-      color: #3598dc;
-          text-decoration: none;
-    }
-      .signup-form form a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  
   </head>
   <body>
   <div class="signup-form">
-      <form action="/examples/actions/confirmation.php" method="post">
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
       <h2>Registrarse</h2>
     
       <hr>
+      
           <div class="form-group">
         <label>Nombre</label>
-            <input type="text" class="form-control" name="username" required="required" >
+            <input type="text" class="form-control" name ="name" [(ngModel)]="name" required>
           </div>
           <div class="form-group">
             <label>Apellido</label>
-                <input type="text" class="form-control" name="username" required="required">
+                <input type="text" class="form-control" name ="lastname" [(ngModel)]="lastname" required>
               </div>
               <div class="form-group">
                 <label>DNI</label>
-                    <input type="text" class="form-control" name="username" required="required">
+                    <input type="number" class="form-control" name="ID" [(ngModel)]="ID" required>
                   </div>
           <div class="form-group">
-        <label>E-mail</label>
-            <input type="email" class="form-control" name="email" required="required" [(ngModel)]="email">
+         <label>E-mail</label>
+            <input  class="form-control" name="email" email required [(ngModel)]="email">
           </div>
           <div class="form-group">
             <label>Repetir e-mail</label>
-                <input type="email" class="form-control" name="email" required="required" [(ngModel)]="emailConfirm">
+                <input  class="form-control" name="emailConfirmation" emial required [(ngModel)]="emailConfirm">
               </div>
             <p *ngIf="! emailMatch()">Las direcciones de e-mail no coinciden</p>
-      <div class="form-group">
-        <label>Contraseña</label>
-              <input type="password" class="form-control" name="password" required="required" [(ngModel)]="password">
+             <div class="form-group">
+           <label>Contraseña</label>
+              <input type="password" class="form-control" name="password"   required [(ngModel)]="password">
           </div>
-      <div class="form-group">
-        <label>Confirmar contraseña</label>
-              <input type="password" class="form-control" name="confirm_password" required="required" [(ngModel)]="passwordConfirm">
+          <div class="form-group">
+            <label>Confirmar contraseña</label>
+              <input type="password" class="form-control" name="passwordConfirmation" required [(ngModel)]="passwordConfirm">
           </div> 
-          <p *ngIf="! passwordMatch()">Las constraseñas  no coinciden</p>       
-          
-      <div class="form-group">
-              <button [disabled]="! emailMatch() || !passwordMatch()" type="submit" class="btn btn-primary btn-lg">Registrarse</button>
-          </div>
-      </form>
+          <p *ngIf="! passwordMatch()">Las constraseñas  no coinciden</p>     
+          <button [disabled]="! emailMatch() || !passwordMatch() || !f.valid" type="submit" class="btn btn-primary btn-lg">Registrarse</button>  
+        </form>
+     
     <div class="text-center">¿Ya estás registrado? <a routerLink=''>Entrá acá</a></div>
   </div>
   </body>

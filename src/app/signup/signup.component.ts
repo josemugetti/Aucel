@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -7,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
+@ViewChild('f') singUpForm:  NgForm; 
+
   email: String;
   emailConfirm: String;
   password: String; 
   passwordConfirm: String; 
+  name: String;
+  lastname: String; 
+  ID: number; 
   
   constructor() { }
 
@@ -25,6 +31,10 @@ export class SignupComponent implements OnInit {
 
     if(this.password==this.passwordConfirm) return true; 
 
+  }
+
+  onSubmit(){
+     console.log(this.singUpForm); 
   }
 
 }

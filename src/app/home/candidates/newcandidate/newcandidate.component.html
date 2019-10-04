@@ -1,0 +1,23 @@
+
+<div class="container-fluid">
+  
+ 
+
+
+<form (ngSubmit)="onSubmit()" #f="ngForm">
+    <div class="form-group">
+      <label for="formGroupExampleInput">Presidente</label>
+      <input type="text" class="form-control" name="presidente" placeholder="Presidente" required>
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Vicepresidente</label>
+      <input type="text" class="form-control"  name="vicepresidente" placeholder="Vicepresidente" required>
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput2">Partido político</label>
+        <input type="text" class="form-control"  name="partidopolitico" placeholder="Partido politico" required>
+      </div>
+
+   <button type="submit" class="btn btn-primary">Enviar</button>
+  
+  </form>
