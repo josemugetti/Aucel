@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ConfigService } from './config.service';
+import { Component, OnInit } from '@angular/core';
+
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -11,24 +11,20 @@ import { map } from 'rxjs/operators';
 export class AppComponent {
   title = 'projecto';
 
-  constructor(private servidor: ConfigService){
+constructor(){ 
+
+
+}
+
 
     
   }
 
-  onData(){
-    this.servidor.getData().subscribe(
-      (response)=>{
-       const data= response.json();
 
-       
-      }
-    )
-  }
 
   
 
  
-}
+
 
 

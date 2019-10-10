@@ -1,0 +1,24 @@
+<h3>  Resultados  </h3>
+
+
+<table class="table table-hover" *ngIf="results.length > 0"  >
+  <thead>
+    <tr>
+      <th scope="col">Presidente</th>
+      <th scope="col">Vicepresidente</th>
+      <th scope="col">Partido</th>
+      <th scope="col"> Votos </th>
+      
+    </tr>
+  </thead>
+  <tbody>
+  
+    <tr   *ngFor="let party of results">
+      <th scope="row">{{party.presidente}}</th>
+      <td>{{party.vicepresidente}}</td>
+      <td>{{party.partido}}</td>    
+      <td>{{party.cantidadVotos}}</td>
+    </tr>
+  
+  </tbody>
+</table>

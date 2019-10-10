@@ -26,16 +26,14 @@
         <td>{{party.vicepresidente}}</td>
         <td>
             <div class="btn-toolbar">
-  
-              <button type="button" style="margin-left: 10px" class="btn btn-success">Editar</button> 
- 
-              <button type="button"  style="margin-left: 10px" class="btn btn-danger">Eliminar</button>
+              <button type="button" (click)=" deleteCandidate(party._id)"  style="margin-left: 10px" class="btn btn-danger">Eliminar</button>
             </div>
           </td>
 
       </tr>
 
-
+</tbody>
+</table>
       <a routerLink="/home/newcandidate">  <button type="button" style="margin: 10px" class="btn btn-primary" >Agregar candidato</button></a>
 
    

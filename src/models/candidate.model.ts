@@ -1,6 +1,11 @@
 export interface Candidate{
+
+    candidate: {
     partido: string;
     presidente: string;
     vicepresidente: string;
-    id?: number;
+    _id?: string;
+    cantidadVotos?: number; 
+    };
 }
+

@@ -1,5 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Voter } from 'src/models/voter.model'; 
+import { ConfigService } from '/home/manuel/aucel/AuCel/src/app/config.service';  
+import {Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-signup',
@@ -10,15 +14,15 @@ export class SignupComponent implements OnInit {
 
 @ViewChild('f') singUpForm:  NgForm; 
 
-  email: String;
-  emailConfirm: String;
-  password: String; 
-  passwordConfirm: String; 
-  name: String;
-  lastname: String; 
-  ID: number; 
+  email: string;
+  emailConfirm: string;
+  password: string; 
+  passwordConfirm: string; 
+  name: string;
+  lastname: string; 
+  dni: number;
   
-  constructor() { }
+  constructor( private http: ConfigService, private  router: Router) { }
 
   ngOnInit() {
   }
@@ -34,7 +38,23 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(){
-     console.log(this.singUpForm); 
+
+   const voter: Voter ={
+     voter:{
+      dni:this.dni,
+      name: this.name,       
+      lastname:  this.lastname, 
+      email:     this.email,  
+      password:this.password,
+     }
+   }; 
+
+   
+     this.http.addVoter(voter).subscribe(responseData=> console.log(responseData)); 
+
+     setTimeout(()=>{this.router.navigate(["/"])}, 1000);
+   
+
   }
 
 }
